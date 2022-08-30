@@ -1,3 +1,3 @@
 # Portfolio
 
-Get to know me! check it out! [patrycake.github.io]
+[Get to know me! check it out!](patrycake.github.io)
