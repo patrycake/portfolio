@@ -9,26 +9,30 @@ import {
   faGithub,
   faCodepen,
   faDiscord,
+  faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 
 function HeaderSocials() {
   return (
     <Container>
-      <Link href="">
+      <Link href="http://medium.com/@patriciarbird">
         <FontAwesomeIcon icon={faMedium} />
       </Link>
-      <Link href="">
+      {/* <Link href="">
         <FontAwesomeIcon icon={faLinkedinIn} />
-      </Link>
-      <Link href="">
+      </Link> */}
+      <Link href="http://github.com/patrycake">
         <FontAwesomeIcon icon={faGithub} />
       </Link>
-      <Link href="">
+      <Link href="mailto:patriciarbird@gmail.com">
+        <FontAwesomeIcon icon={faGoogle} />
+      </Link>
+      {/* <Link href="">
         <FontAwesomeIcon icon={faCodepen} />
-      </Link>
-      <Link href="">
+      </Link> */}
+      {/* <Link href="">
         <FontAwesomeIcon icon={faDiscord} />
-      </Link>
+      </Link> */}
     </Container>
   );
 }
