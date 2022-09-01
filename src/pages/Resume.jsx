@@ -4,6 +4,7 @@ import { Container, Section, Grid, Button } from "../components/Common";
 import { resume1, resume2 } from "../data";
 import { v4 as uuid } from "uuid";
 import Card from "../components/Card";
+import { tablet } from "../features/responsive";
 
 function Resume() {
   return (
@@ -76,6 +77,7 @@ const Title = styled.h2``;
 const ResGrid = styled(Grid)`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1.875rem;
+  ${tablet({ display: "flex", flexDirection: "column", gap: "30px" })}
 `;
 const TimeLine = styled(Grid)`
   background-color: var(--container-color);

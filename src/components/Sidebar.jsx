@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,8 +10,10 @@ import {
   faCodeFork,
   faWrench,
   faFileLines,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuid } from "uuid";
+import { tablet } from "../features/responsive";
 
 function Sidebar() {
   const listItems = [
@@ -24,28 +26,38 @@ function Sidebar() {
     { name: "resume", icon: faFileLines },
     // { name: "contact", icon: faAddressCard },
   ];
+  const [toggle, setToggle] = useState(false);
+
+  function navToggle(e) {
+    setToggle((prev) => !prev);
+  }
   return (
-    <Aside>
-      <NavLogo href="#home">
-        <FontAwesomeIcon icon={faCake} size="2x" color="var(--main-blue)" />
-      </NavLogo>
-      <Nav>
-        <Menu>
-          <List>
-            {listItems.map((item) => (
-              <Item key={uuid()}>
-                <Link href={`#${item.name}`}>
-                  <FontAwesomeIcon icon={item.icon} />
-                </Link>
-              </Item>
-            ))}
-          </List>
-        </Menu>
-      </Nav>
-      <Footer>
-        <Copyright>&copy; 2022 - 2023</Copyright>
-      </Footer>
-    </Aside>
+    <>
+      <Aside display={toggle}>
+        <NavLogo href="#home">
+          <FontAwesomeIcon icon={faCake} size="2x" color="var(--main-blue)" />
+        </NavLogo>
+        <Nav>
+          <Menu>
+            <List>
+              {listItems.map((item) => (
+                <Item key={uuid()}>
+                  <Link href={`#${item.name}`}>
+                    <FontAwesomeIcon icon={item.icon} />
+                  </Link>
+                </Item>
+              ))}
+            </List>
+          </Menu>
+        </Nav>
+        <Footer>
+          <Copyright>&copy; 2022 - 2023</Copyright>
+        </Footer>
+      </Aside>
+      <NavToggle onClick={navToggle} display={toggle}>
+        <FontAwesomeIcon icon={faBars} />
+      </NavToggle>
+    </>
   );
 }
 
@@ -55,7 +67,6 @@ const Aside = styled.aside`
   left: 0;
   top: 0;
   background: var(--body-color);
-  /* border: 1px solid rgba(0, 0, 0, 0.05); */
   padding: 2.5rem;
   width: 110px;
   min-height: 100vh;
@@ -64,6 +75,12 @@ const Aside = styled.aside`
   align-items: center;
   justify-content: space-between;
   z-index: 10;
+  transition: 0.3s;
+
+  ${tablet({
+    left: (props) => (props.display ? "0" : "-110px"),
+    opacity: ".9",
+  })}
 `;
 const NavLogo = styled.a``;
 const Nav = styled.nav``;
@@ -81,6 +98,8 @@ const Link = styled.a`
   &:hover {
     color: var(--secondary-green);
   }
+
+  ${tablet({ fontSize: "1.125rem" })}
 `;
 const Footer = styled.div``;
 const Copyright = styled.span`
@@ -88,4 +107,20 @@ const Copyright = styled.span`
   font-size: var(--small-font-size);
   transform: rotate(-180deg);
   writing-mode: vertical-rl;
+`;
+const NavToggle = styled.div`
+  position: fixed;
+  top: 1.25rem;
+  left: ${(props) => (props.display ? "6.875rem" : "1.875rem")};
+  cursor: pointer;
+  height: 40px;
+  width: 45px;
+  background-color: var(--container-color);
+  border: 1px solid #e8dfec;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: 0.3s;
 `;

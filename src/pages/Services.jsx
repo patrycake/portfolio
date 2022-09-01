@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Container, Section, Grid, Button } from "../components/Common";
 import { services } from "../data";
 import { v4 as uuid } from "uuid";
+import { tablet } from "../features/responsive";
 
 function Services() {
   return (
@@ -30,6 +31,7 @@ const SerGrid = styled(Grid)`
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1.875rem;
   row-gap: 2rem;
+  ${tablet({ display: "flex", flexDirection: "column" })}
 `;
 const Card = styled.div`
   text-align: center;

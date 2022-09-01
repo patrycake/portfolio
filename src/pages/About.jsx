@@ -6,6 +6,7 @@ import AboutSkills from "../components/AboutSkills";
 import VisibilitySensor from "react-visibility-sensor";
 import { motion } from "framer-motion";
 import resume from "../assets/files/PatriciaBirdResume.pdf";
+import { tablet } from "../features/responsive";
 
 function About() {
   const growDev = { true: { width: "90%" }, false: { width: "0" } };
@@ -87,6 +88,7 @@ const Title = styled.h2``;
 const AboutGrid = styled(Grid)`
   grid-template-columns: 3fr 9fr;
   column-gap: 1.875rem;
+  ${tablet({ gridTemplateColumns: ".5fr 7fr" })}
 `;
 const buttonPush = keyframes`
   from {
@@ -117,8 +119,12 @@ const AvatarCircle = styled.div`
   background-color: var(--secondary-green);
   border-radius: 50%;
   margin-bottom: 1.5rem;
-  /* display: flex;
-  align-items: center; */
+  ${tablet({
+    width: "80px",
+    height: "80px",
+    display: "flex",
+    alignItems: "center",
+  })}
 `;
 const Avatar = styled.img`
   width: 150px;

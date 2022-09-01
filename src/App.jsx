@@ -7,7 +7,7 @@ import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
-// import { Container } from "./components/Common";
+import { tablet } from "./features/responsive";
 
 function App() {
   return (
@@ -36,4 +36,5 @@ const Main = styled.main`
   > * {
     margin-top: 100px;
   }
+  ${tablet({ marginLeft: "0" })}
 `;

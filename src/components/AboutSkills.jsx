@@ -16,6 +16,7 @@ import {
   faYarn,
 } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
+import { tablet } from "../features/responsive";
 
 function AboutSkills() {
   return (
@@ -42,10 +43,16 @@ export default AboutSkills;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 100px 0;
   svg {
     color: var(--secondary-green);
     font-size: 2rem;
   }
+
+  ${tablet({
+    // flexDirection: "column",
+    flexWrap: "wrap",
+    gap: "30px",
+  })}
 `;

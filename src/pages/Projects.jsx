@@ -6,6 +6,7 @@ import { v4 as uuid } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { tablet } from "../features/responsive";
 
 function Projects() {
   const [items, setItems] = useState(FilterMenu);
@@ -108,6 +109,7 @@ const Filter = styled.div`
   align-items: center;
   column-gap: 1.875rem;
   margin-bottom: 2.5rem;
+  ${tablet({ display: "flex", flexWrap: "wrap", gap: "20px 20px" })}
 `;
 const Item = styled.span`
   cursor: pointer;
@@ -122,6 +124,7 @@ const Item = styled.span`
 const WorkGrid = styled(Grid)`
   grid-template-columns: repeat(3, 1fr);
   gap: 1.875rem;
+  ${tablet({ display: "flex", flexDirection: "column" })}
 `;
 const Card = styled.div`
   position: relative;
