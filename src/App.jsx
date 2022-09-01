@@ -36,5 +36,5 @@ const Main = styled.main`
   > * {
     margin-top: 100px;
   }
-  ${tablet({ marginLeft: "0" })}
+  ${tablet({ margin: "20px" })}
 `;

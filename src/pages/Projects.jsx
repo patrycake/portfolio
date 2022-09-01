@@ -131,6 +131,7 @@ const Card = styled.div`
   overflow: hidden;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
+  ${tablet({ margin: "20px" })}
 `;
 const Thumbnail = styled.div``;
 const Image = styled.img``;
